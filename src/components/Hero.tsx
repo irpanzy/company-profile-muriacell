@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Button } from '@/components/ui/button'
 
 type Props = { whatsappHref: string }
 
@@ -9,9 +10,13 @@ export default function Hero({ whatsappHref }: Props) {
         <motion.div initial={{ x: -50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.5 }} className="flex-1">
           <h2 className="text-4xl md:text-5xl font-extrabold text-blue-600">Your Trusted Gadget Partner</h2>
           <p className="mt-4 text-gray-700">Muria Cellular Technology menyediakan HP, aksesoris, voucher pulsa, powerbank, dan layanan service yang cepat dan terpercaya.</p>
-          <div className="mt-6 flex gap-3">
-            <a href="#services" className="px-5 py-3 bg-white border border-blue-600 text-blue-600 rounded-md shadow-sm">Cek Produk</a>
-            <a href={whatsappHref} target="_blank" rel="noreferrer" className="px-5 py-3 bg-green-500 text-white rounded-md shadow-sm">Chat via WhatsApp</a>
+          <div className="mt-6 flex gap-3 flex-wrap">
+            <Button asChild variant="outline" size="lg" className="border-blue-600 text-blue-600 hover:bg-blue-50 active:scale-95">
+              <a href="#services">Cek Produk</a>
+            </Button>
+            <Button asChild size="lg" className="bg-green-600 hover:bg-green-700 active:scale-95">
+              <a href={whatsappHref} target="_blank" rel="noreferrer">Chat via WhatsApp</a>
+            </Button>
           </div>
         </motion.div>
         <motion.div initial={{ scale: 0.95, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.6 }} className="flex-1">

@@ -1,11 +1,18 @@
 import { MessageSquare } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 
 type Props = { whatsappHref: string }
 
 export default function FloatingWhatsApp({ whatsappHref }: Props) {
   return (
-    <a href={whatsappHref} target="_blank" rel="noreferrer" className="fixed right-4 bottom-4 bg-green-500 p-3 rounded-full shadow-lg text-white z-50">
-      <MessageSquare />
-    </a>
+    <Button 
+      asChild 
+      size="icon-lg" 
+      className="fixed right-4 bottom-4 bg-green-600 hover:bg-green-700 rounded-full shadow-lg z-50 hover:scale-110 active:scale-95 transition-all"
+    >
+      <a href={whatsappHref} target="_blank" rel="noreferrer" aria-label="Chat via WhatsApp">
+        <MessageSquare className="w-6 h-6" />
+      </a>
+    </Button>
   )
 }
