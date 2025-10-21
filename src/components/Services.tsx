@@ -1,0 +1,31 @@
+import { Smartphone, Plug, BatteryCharging, Headphones } from 'lucide-react'
+import { Card, CardContent } from '@/components/ui/card'
+
+const services = [
+  { title: 'HP Baru', desc: 'Berbagai merek: Samsung, Xiaomi, Vivo, Oppo, Realme', icon: Smartphone },
+  { title: 'Aksesoris', desc: 'Charger, headset, casing, tempered glass, dll', icon: Plug },
+  { title: 'Powerbank & MMC', desc: 'Powerbank, MMC, dan Flashdisk', icon: BatteryCharging },
+  { title: 'Service HP', desc: 'Servis & konsultasi perangkat', icon: Headphones },
+]
+
+export default function Services() {
+  return (
+    <section id="services" className="max-w-6xl mx-auto px-6 py-16">
+      <h3 className="text-2xl font-bold text-blue-600">Produk & Layanan</h3>
+      <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {services.map((s) => {
+          const Icon = s.icon
+          return (
+            <Card key={s.title} className="transition-all hover:shadow-lg hover:-translate-y-1 cursor-pointer">
+              <CardContent className="p-6">
+                <Icon className="text-blue-600 mb-3 w-8 h-8" />
+                <h4 className="font-semibold">{s.title}</h4>
+                <p className="text-sm text-gray-600 mt-2">{s.desc}</p>
+              </CardContent>
+            </Card>
+          )
+        })}
+      </div>
+    </section>
+  )
+}
