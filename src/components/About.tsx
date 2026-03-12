@@ -22,13 +22,15 @@ const features = [
 export default function About() {
   return (
     <section id="about" className="max-w-6xl mx-auto px-6 py-16">
-      <h3 className="text-2xl font-bold text-blue-600">Tentang Kami</h3>
-      <p className="mt-4 text-gray-700">
-        Muria Cellular Technology adalah toko yang melayani penjualan HP,
-        aksesoris, voucher pulsa, MMC & flashdisk, powerbank, serta layanan
-        service dan konsultasi perangkat. Kami hadir untuk memberikan produk
-        bergaransi, pelayanan cepat & ramah, dan harga bersaing.
-      </p>
+      <div className="text-center mb-8">
+        <h3 className="text-3xl font-bold text-blue-600">Tentang Kami</h3>
+        <p className="mt-4 text-gray-700 max-w-3xl mx-auto">
+          Muria Cellular Technology adalah toko yang melayani penjualan HP,
+          aksesoris, voucher pulsa, MMC & flashdisk, powerbank, serta layanan
+          service dan konsultasi perangkat. Kami hadir untuk memberikan produk
+          bergaransi, pelayanan cepat & ramah, dan harga bersaing.
+        </p>
+      </div>
       <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
         {features.map((feature) => {
           const Icon = feature.icon;
