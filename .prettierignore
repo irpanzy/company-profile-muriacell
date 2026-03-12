@@ -1,0 +1,49 @@
+node_modules
+dist
+build
+coverage
+.env
+*.log
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+.DS_Store
+
+# Build outputs
+*.min.js
+*.min.css
+*.bundle.js
+
+# Cache
+.cache
+.parcel-cache
+.vite
+.turbo
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# Documentation
+CHANGELOG.md
+LICENSE
+
+# Public assets
+public/**/*.html
+public/**/*.json
+
+# Auto-generated
+*.generated.*
+**/.next/**
+**/.nuxt/**
+
+# Markdown files (optional, comment out if you want to format them)
+# *.md
+
+# Config files that might have specific formatting
+.prettierrc
+.eslintrc
+
