@@ -8,12 +8,10 @@ import Footer from "./components/Footer";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import SEO from "./components/SEO";
 import { business } from "./lib/data";
+import { buildWhatsappHref } from "./lib/whatsapp";
 
 function App() {
-  const whatsappMessage = encodeURIComponent(
-    "Halo Muria Cellular Technology, saya ingin bertanya tentang produk/layanan yang tersedia."
-  );
-  const whatsappHref = `https://wa.me/${business.whatsappNumber}?text=${whatsappMessage}`;
+  const whatsappHref = buildWhatsappHref(business.whatsappNumber);
 
   return (
     <>
