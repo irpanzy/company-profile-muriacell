@@ -43,7 +43,7 @@ export default function Gallery() {
     <>
       <section id="gallery" className="max-w-6xl mx-auto px-6 py-16 bg-gray-50">
         <div className="text-center mb-8">
-          <h3 className="text-3xl font-bold text-blue-600">Galeri</h3>
+          <h3 className="text-3xl font-bold text-[#355872]">Galeri</h3>
           <p className="text-gray-600 mt-2">Koleksi produk dan layanan kami</p>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
