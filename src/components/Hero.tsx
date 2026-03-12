@@ -34,7 +34,7 @@ export default function Hero({ whatsappHref }: Props) {
               size="lg"
               className="bg-green-600 hover:bg-green-700 active:scale-95"
             >
-              <a href={whatsappHref} target="_blank" rel="noreferrer">
+              <a href={whatsappHref} target="_blank" rel="noreferrer noopener">
                 Chat via WhatsApp
               </a>
             </Button>

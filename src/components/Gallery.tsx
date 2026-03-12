@@ -1,7 +1,12 @@
 import { Card } from "@/components/ui/card";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
-const galleryImages = [
+interface GalleryImage {
+  url: string;
+  alt: string;
+}
+
+const galleryImages: GalleryImage[] = [
   {
     url: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&q=80",
     alt: "Koleksi Smartphone",
@@ -37,7 +42,14 @@ const galleryImages = [
 ];
 
 export default function Gallery() {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
+  const dialogRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (selectedImage && dialogRef.current) {
+      dialogRef.current.focus();
+    }
+  }, [selectedImage]);
 
   return (
     <>
@@ -51,7 +63,7 @@ export default function Gallery() {
             <Card
               key={i}
               className="h-40 bg-gray-100 overflow-hidden hover:shadow-xl hover:scale-105 transition-all cursor-pointer group"
-              onClick={() => setSelectedImage(image.url)}
+              onClick={() => setSelectedImage(image)}
             >
               <img
                 src={image.url}
@@ -68,12 +80,24 @@ export default function Gallery() {
       {selectedImage && (
         <div
           className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 cursor-pointer"
+          role="dialog"
+          aria-modal="true"
+          tabIndex={-1}
+          ref={dialogRef}
           onClick={() => setSelectedImage(null)}
+          onKeyDown={(event) => {
+            if (event.key === "Escape") {
+              setSelectedImage(null);
+            }
+          }}
         >
-          <div className="max-w-4xl w-full">
+          <div
+            className="max-w-4xl w-full"
+            onClick={(event) => event.stopPropagation()}
+          >
             <img
-              src={selectedImage}
-              alt="Preview"
+              src={selectedImage.url}
+              alt={selectedImage.alt}
               className="w-full h-auto rounded-lg shadow-2xl"
             />
           </div>

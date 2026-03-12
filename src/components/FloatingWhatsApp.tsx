@@ -13,7 +13,7 @@ export default function FloatingWhatsApp({ whatsappHref }: Props) {
       <a
         href={whatsappHref}
         target="_blank"
-        rel="noreferrer"
+        rel="noreferrer noopener"
         aria-label="Chat via WhatsApp"
       >
         <MessageSquare className="w-6 h-6" />

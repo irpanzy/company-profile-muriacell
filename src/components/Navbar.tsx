@@ -63,7 +63,7 @@ export default function Navbar({ whatsappHref }: Props) {
               size="sm"
               className="bg-[#355872] hover:bg-[#2A4659] active:scale-95 shadow-sm"
             >
-              <a href={whatsappHref} target="_blank" rel="noreferrer">
+              <a href={whatsappHref} target="_blank" rel="noreferrer noopener">
                 <Phone size={16} /> Hubungi Kami
               </a>
             </Button>
@@ -77,7 +77,7 @@ export default function Navbar({ whatsappHref }: Props) {
               variant="ghost"
               className="md:hidden"
             >
-              <a href={whatsappHref} target="_blank" rel="noreferrer">
+              <a href={whatsappHref} target="_blank" rel="noreferrer noopener">
                 <Phone size={18} />
               </a>
             </Button>
@@ -119,7 +119,11 @@ export default function Navbar({ whatsappHref }: Props) {
                   asChild
                   className="w-full bg-[#355872] hover:bg-[#2A4659]"
                 >
-                  <a href={whatsappHref} target="_blank" rel="noreferrer">
+                  <a
+                    href={whatsappHref}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
                     <Phone size={16} /> Hubungi Kami via WhatsApp
                   </a>
                 </Button>
