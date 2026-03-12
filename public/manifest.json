@@ -1,0 +1,22 @@
+{
+  "name": "Muria Cellular Technology",
+  "short_name": "Muria Cellular",
+  "description": "Service HP & Laptop Profesional di Cilacap",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["technology", "business", "shopping"],
+  "lang": "id-ID",
+  "dir": "ltr",
+  "scope": "/"
+}

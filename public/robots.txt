@@ -1,0 +1,11 @@
+# robots.txt for Muria Cellular Technology
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://www.muriacellular.my.id/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 10
