@@ -22,23 +22,25 @@ const features = [
 export default function About() {
   return (
     <section id="about" className="max-w-6xl mx-auto px-6 py-16">
-      <h3 className="text-2xl font-bold text-blue-600">Tentang Kami</h3>
-      <p className="mt-4 text-gray-700">
-        Muria Cellular Technology adalah toko yang melayani penjualan HP,
-        aksesoris, voucher pulsa, MMC & flashdisk, powerbank, serta layanan
-        service dan konsultasi perangkat. Kami hadir untuk memberikan produk
-        bergaransi, pelayanan cepat & ramah, dan harga bersaing.
-      </p>
+      <div className="text-center mb-8">
+        <h3 className="text-3xl font-bold text-[#355872]">Tentang Kami</h3>
+        <p className="mt-4 text-gray-700 max-w-3xl mx-auto">
+          Muria Cellular Technology adalah toko yang melayani penjualan HP,
+          aksesoris, voucher pulsa, MMC & flashdisk, powerbank, serta layanan
+          service dan konsultasi perangkat. Kami hadir untuk memberikan produk
+          bergaransi, pelayanan cepat & ramah, dan harga bersaing.
+        </p>
+      </div>
       <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
         {features.map((feature) => {
           const Icon = feature.icon;
           return (
             <Card
               key={feature.title}
-              className="transition-all hover:shadow-md hover:border-blue-200"
+              className="transition-all hover:shadow-md hover:border-[#355872]/30"
             >
               <CardContent className="p-6">
-                <Icon className="text-blue-600 mb-2 w-6 h-6" />
+                <Icon className="text-[#355872] mb-2 w-6 h-6" />
                 <h4 className="font-semibold">{feature.title}</h4>
                 <p className="text-sm text-gray-600 mt-2">{feature.desc}</p>
               </CardContent>

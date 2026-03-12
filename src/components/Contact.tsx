@@ -6,14 +6,24 @@ import { business } from "@/lib/data";
 const address = `Perumahan Cemara Regency, Jl. Urip Sumoharjo No.1A, Gumilir, Kec. Cilacap Utara, Kabupaten Cilacap, Jawa Tengah 53231`;
 
 export default function Contact() {
+  const whatsappMessage = encodeURIComponent(
+    "Halo Muria Cellular Technology, saya ingin bertanya tentang produk/layanan yang tersedia."
+  );
+  const whatsappHref = `https://wa.me/${business.whatsappNumber}?text=${whatsappMessage}`;
+
   return (
     <section id="contact" className="max-w-6xl mx-auto px-6 py-16">
-      <h3 className="text-2xl font-bold text-blue-600">Kontak Kami</h3>
-      <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="text-center mb-8">
+        <h3 className="text-3xl font-bold text-[#355872]">Kontak Kami</h3>
+        <p className="text-gray-600 mt-2">
+          Hubungi kami untuk informasi lebih lanjut
+        </p>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-4">
           <Card className="hover:shadow-md transition-all">
             <CardContent className="p-4 flex items-start gap-3">
-              <MapPin className="text-blue-600 mt-1 flex-shrink-0" />
+              <MapPin className="text-[#355872] mt-1 flex-shrink-0" />
               <div>
                 <h4 className="font-semibold">Alamat</h4>
                 <p className="text-sm text-gray-700 mt-1">{address}</p>
@@ -23,7 +33,7 @@ export default function Contact() {
 
           <Card className="hover:shadow-md transition-all">
             <CardContent className="p-4 flex items-start gap-3">
-              <Phone className="text-blue-600 mt-1 flex-shrink-0" />
+              <Phone className="text-[#355872] mt-1 flex-shrink-0" />
               <div className="flex-1">
                 <h4 className="font-semibold">WhatsApp</h4>
                 <p className="text-sm text-gray-700 mt-1 mb-2">
@@ -34,11 +44,7 @@ export default function Contact() {
                   size="sm"
                   className="bg-green-600 hover:bg-green-700"
                 >
-                  <a
-                    href={`https://wa.me/${business.whatsappNumber}`}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
+                  <a href={whatsappHref} target="_blank" rel="noreferrer">
                     Chat Sekarang
                   </a>
                 </Button>
@@ -48,7 +54,7 @@ export default function Contact() {
 
           <Card className="hover:shadow-md transition-all">
             <CardContent className="p-4 flex items-start gap-3">
-              <Instagram className="text-blue-600 mt-1 flex-shrink-0" />
+              <Instagram className="text-[#355872] mt-1 flex-shrink-0" />
               <div className="flex-1">
                 <h4 className="font-semibold">Instagram</h4>
                 <p className="text-sm text-gray-700 mt-1 mb-2">

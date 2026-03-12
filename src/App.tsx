@@ -10,7 +10,10 @@ import SEO from "./components/SEO";
 import { business } from "./lib/data";
 
 function App() {
-  const whatsappHref = `https://wa.me/${business.whatsappNumber}`;
+  const whatsappMessage = encodeURIComponent(
+    "Halo Muria Cellular Technology, saya ingin bertanya tentang produk/layanan yang tersedia."
+  );
+  const whatsappHref = `https://wa.me/${business.whatsappNumber}?text=${whatsappMessage}`;
 
   return (
     <>

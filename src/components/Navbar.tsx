@@ -33,7 +33,7 @@ export default function Navbar({ whatsappHref }: Props) {
               />
             </div>
             <div className="flex flex-col">
-              <span className="text-blue-600 font-bold text-lg leading-tight">
+              <span className="text-[#355872] font-bold text-lg leading-tight">
                 Muria Cellular
               </span>
               <span className="text-gray-500 text-[10px] leading-tight">
@@ -48,7 +48,7 @@ export default function Navbar({ whatsappHref }: Props) {
               <a
                 key={link.href}
                 href={link.href}
-                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all"
+                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-[#355872] hover:bg-[#355872]/10 rounded-lg transition-all"
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
@@ -61,7 +61,7 @@ export default function Navbar({ whatsappHref }: Props) {
             <Button
               asChild
               size="sm"
-              className="bg-blue-600 hover:bg-blue-700 active:scale-95 shadow-sm"
+              className="bg-[#355872] hover:bg-[#2A4659] active:scale-95 shadow-sm"
             >
               <a href={whatsappHref} target="_blank" rel="noreferrer">
                 <Phone size={16} /> Hubungi Kami
@@ -108,7 +108,7 @@ export default function Navbar({ whatsappHref }: Props) {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="block px-4 py-3 text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all"
+                  className="block px-4 py-3 text-sm font-medium text-gray-700 hover:text-[#355872] hover:bg-[#355872]/10 rounded-lg transition-all"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}
@@ -117,7 +117,7 @@ export default function Navbar({ whatsappHref }: Props) {
               <div className="pt-2">
                 <Button
                   asChild
-                  className="w-full bg-blue-600 hover:bg-blue-700"
+                  className="w-full bg-[#355872] hover:bg-[#2A4659]"
                 >
                   <a href={whatsappHref} target="_blank" rel="noreferrer">
                     <Phone size={16} /> Hubungi Kami via WhatsApp

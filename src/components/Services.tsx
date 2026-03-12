@@ -27,8 +27,13 @@ const services = [
 export default function Services() {
   return (
     <section id="services" className="max-w-6xl mx-auto px-6 py-16">
-      <h3 className="text-2xl font-bold text-blue-600">Produk & Layanan</h3>
-      <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="text-center mb-8">
+        <h3 className="text-3xl font-bold text-[#355872]">Produk & Layanan</h3>
+        <p className="text-gray-600 mt-2">
+          Solusi lengkap untuk kebutuhan gadget Anda
+        </p>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {services.map((s) => {
           const Icon = s.icon;
           return (
@@ -37,7 +42,7 @@ export default function Services() {
               className="transition-all hover:shadow-lg hover:-translate-y-1 cursor-pointer"
             >
               <CardContent className="p-6">
-                <Icon className="text-blue-600 mb-3 w-8 h-8" />
+                <Icon className="text-[#355872] mb-3 w-8 h-8" />
                 <h4 className="font-semibold">{s.title}</h4>
                 <p className="text-sm text-gray-600 mt-2">{s.desc}</p>
               </CardContent>

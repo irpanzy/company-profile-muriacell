@@ -13,7 +13,7 @@ export default function SEO({
   title = "Muria Cellular Technology - Service HP & Laptop Profesional di Cilacap",
   description = "Muria Cellular Technology adalah penyedia layanan service HP dan laptop terpercaya di Cilacap. Menyediakan jasa perbaikan smartphone, laptop, aksesoris, dan teknologi terkini dengan tenaga ahli profesional.",
   keywords = "service hp cilacap, service laptop cilacap, reparasi hp, reparasi laptop, toko hp cilacap, aksesoris hp, muria cellular, teknologi cilacap, service smartphone, perbaikan hp profesional",
-  image = "/og-image.jpg",
+  image = "/muria-cell-logo.png",
   url = "https://www.muriacellular.my.id",
   type = "website",
 }: SEOProps) {
