@@ -46,10 +46,18 @@ export default function Hero({ whatsappHref }: Props) {
           transition={{ duration: 0.6 }}
           className="flex-1"
         >
-          <div className="w-full h-64 md:h-80 bg-gray-100 rounded-lg flex items-center justify-center border border-dashed">
-            <span className="text-gray-400">
-              [Placeholder gambar produk / toko]
-            </span>
+          <div className="w-full h-64 md:h-80 bg-gradient-to-br from-blue-100 to-blue-50 rounded-2xl overflow-hidden shadow-xl relative group">
+            <img
+              src="https://images.unsplash.com/photo-1556656793-08538906a9f8?w=800&q=80"
+              alt="Muria Cellular Technology - Produk"
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              loading="eager"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-blue-900/50 to-transparent flex items-end p-6">
+              <p className="text-white font-semibold text-lg drop-shadow-lg">
+                Produk Terpercaya & Bergaransi
+              </p>
+            </div>
           </div>
         </motion.div>
       </div>
