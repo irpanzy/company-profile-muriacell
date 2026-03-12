@@ -2,14 +2,12 @@ import { MapPin, Phone, Instagram } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { business } from "@/lib/data";
+import { buildWhatsappHref } from "@/lib/whatsapp";
 
 const address = `Perumahan Cemara Regency, Jl. Urip Sumoharjo No.1A, Gumilir, Kec. Cilacap Utara, Kabupaten Cilacap, Jawa Tengah 53231`;
 
 export default function Contact() {
-  const whatsappMessage = encodeURIComponent(
-    "Halo Muria Cellular Technology, saya ingin bertanya tentang produk/layanan yang tersedia."
-  );
-  const whatsappHref = `https://wa.me/${business.whatsappNumber}?text=${whatsappMessage}`;
+  const whatsappHref = buildWhatsappHref(business.whatsappNumber);
 
   return (
     <section id="contact" className="max-w-6xl mx-auto px-6 py-16">
@@ -44,7 +42,11 @@ export default function Contact() {
                   size="sm"
                   className="bg-green-600 hover:bg-green-700"
                 >
-                  <a href={whatsappHref} target="_blank" rel="noreferrer">
+                  <a
+                    href={whatsappHref}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
                     Chat Sekarang
                   </a>
                 </Button>
@@ -61,7 +63,11 @@ export default function Contact() {
                   @muriacellular
                 </p>
                 <Button asChild size="sm" variant="outline">
-                  <a href={business.instagram} target="_blank" rel="noreferrer">
+                  <a
+                    href={business.instagram}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
                     Kunjungi Instagram
                   </a>
                 </Button>
