@@ -1,7 +1,9 @@
 import { GoogleGenAI } from "@google/genai";
 
+const geminiApiKey = import.meta.env.VITE_GEMINI_API_KEY || "";
+
 const genAI = new GoogleGenAI({
-  apiKey: import.meta.env.VITE_GEMINI_API_KEY || "",
+  apiKey: geminiApiKey,
 });
 
 export interface ChatMessage {
@@ -11,16 +13,16 @@ export interface ChatMessage {
 
 const fallbackResponses: { [key: string]: string } = {
   hello:
-    "Halo! 👋 Saya Muria Cellular Assistant. Ada yang bisa saya bantu? Tanyakan tentang produk kami!",
+    "Halo! 👋 Saya Muria Assistant dari Muria Cellular. Ada yang bisa saya bantu hari ini? Anda bisa bertanya tentang produk, layanan service, lokasi, atau jam operasional.",
   produk:
-    "Kami menjual berbagai produk gadget:\n- 📱 HP Baru (Samsung, Xiaomi, Vivo, Oppo, Realme)\n- 🎧 Aksesoris (Charger, Headset, Casing, Tempered Glass)\n- 🔋 Powerbank & MMC\n- 🛠️ Jasa Service HP\n\nKenapa ke toko Muria? Semua produk bergaransi, harga bersaing, dan pelayanan cepat ramah! 😊",
+    "Kami menyediakan berbagai kebutuhan gadget, seperti:\n- 📱 HP baru (Samsung, Xiaomi, Vivo, Oppo, Realme)\n- 🎧 Aksesoris (charger, headset, casing, tempered glass)\n- 🔋 Powerbank & MMC\n- 🛠️ Layanan service HP\n\nSemua produk bergaransi, harga kompetitif, dan pelayanan kami ramah serta cepat. 😊",
   lokasi:
-    "Lokasi kami:\n📍 Perumahan Cemara Regency\nJl. Urip Sumoharjo No.1A\nGumilir, Kec. Cilacap Utara\nKabupaten Cilacap, Jawa Tengah 53231\n\nTerbuka setiap hari untuk melayani Anda!",
-  jam: "Jam operasional Muria Cellular:\n⏰ Senin - Minggu: 09:00 - 21:00\n\nUntuk pertanyaan lebih lanjut, hubungi kami via WhatsApp!",
+    "Lokasi toko kami:\n📍 Perumahan Cemara Regency\nJl. Urip Sumoharjo No.1A\nGumilir, Kec. Cilacap Utara\nKabupaten Cilacap, Jawa Tengah 53231\n\nSilakan datang langsung, kami siap melayani Anda.",
+  jam: "Jam operasional Muria Cellular:\n⏰ Senin - Minggu: 09:00 - 21:00\n\nJika ingin konfirmasi sebelum datang, silakan hubungi kami via WhatsApp.",
   service:
-    "Layanan Service kami:\n🔧 Perbaikan HP (LCD, Battery, Software)\n💻 Konsultasi Teknis Gratis\n⚡ Servis Express (cepat dan terpercaya)\n\nTukar screen rusak? Ganti baterai? Pulihkan data? Kami siap membantu! Contact WhatsApp untuk booking.",
+    "Layanan service kami meliputi:\n🔧 Perbaikan HP (LCD, baterai, software)\n💻 Konsultasi teknis gratis\n⚡ Service express (cepat dan terpercaya)\n\nJika layar rusak, baterai bermasalah, atau butuh pemulihan data, tim kami siap membantu. Anda juga bisa booking lewat WhatsApp.",
   default:
-    "Terima kasih atas pertanyaannya! 😊 Untuk informasi lebih detail atau pertanyaan yang lebih spesifik, silakan hubungi kami melalui WhatsApp atau kunjungi toko kami langsung di Perumahan Cemara Regency.",
+    "Terima kasih atas pertanyaannya! 😊 Untuk informasi lebih lengkap, silakan hubungi kami melalui WhatsApp atau kunjungi toko kami langsung di Perumahan Cemara Regency.",
 };
 
 function getRelevantFallbackResponse(userMessage: string): string {
@@ -91,6 +93,10 @@ export async function chatWithMuriaAssistant(
   message: string,
   history: ChatMessage[]
 ): Promise<string> {
+  if (!geminiApiKey) {
+    return getRelevantFallbackResponse(message);
+  }
+
   const normalizedMessage = message.toLowerCase();
 
   if (
@@ -99,6 +105,29 @@ export async function chatWithMuriaAssistant(
     normalizedMessage.includes("dimana")
   ) {
     return fallbackResponses.lokasi;
+  }
+
+  if (
+    normalizedMessage.includes("jam") ||
+    normalizedMessage.includes("operasional") ||
+    normalizedMessage.includes("buka")
+  ) {
+    return fallbackResponses.jam;
+  }
+
+  if (
+    normalizedMessage.includes("service") ||
+    normalizedMessage.includes("servis") ||
+    normalizedMessage.includes("perbaikan")
+  ) {
+    return fallbackResponses.service;
+  }
+
+  if (
+    normalizedMessage.includes("produk") ||
+    normalizedMessage.includes("jual")
+  ) {
+    return fallbackResponses.produk;
   }
 
   const modelsToTry = [
@@ -112,18 +141,16 @@ export async function chatWithMuriaAssistant(
 
   for (const model of modelsToTry) {
     try {
-      const contents = {
-        parts: [
-          ...history.map((msg) => ({
-            text: msg.content,
-            role: msg.role === "user" ? "user" : "model",
-          })),
-          {
-            text: message,
-            role: "user",
-          },
-        ],
-      };
+      const contents = [
+        ...history.map((msg) => ({
+          role: msg.role === "user" ? "user" : "model",
+          parts: [{ text: msg.content }],
+        })),
+        {
+          role: "user",
+          parts: [{ text: message }],
+        },
+      ];
 
       const result = await retryWithBackoff(() =>
         genAI.models.generateContent({
