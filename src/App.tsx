@@ -5,7 +5,7 @@ import Services from "./components/Services";
 import Gallery from "./components/Gallery";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import FloatingWhatsApp from "./components/FloatingWhatsApp";
+import ChatBot from "./components/ChatBot";
 import SEO from "./components/SEO";
 import { business } from "./lib/data";
 import { buildWhatsappHref } from "./lib/whatsapp";
@@ -26,7 +26,7 @@ function App() {
           <Contact />
         </main>
         <Footer />
-        <FloatingWhatsApp whatsappHref={whatsappHref} />
+        <ChatBot />
       </div>
     </>
   );

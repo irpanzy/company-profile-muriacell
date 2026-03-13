@@ -29,14 +29,14 @@ export default function Navbar({ whatsappHref }: Props) {
               <img
                 src="/muria-cell-logo.png"
                 alt="Logo Muria Cellular"
-                className="text-white w-13 h-13"
+                className="w-10 md:w-12 h-10 md:h-12 object-contain"
               />
             </div>
             <div className="flex flex-col">
-              <span className="text-[#355872] font-bold text-lg leading-tight">
+              <span className="text-[#355872] font-bold text-sm md:text-lg leading-tight">
                 Muria Cellular
               </span>
-              <span className="text-gray-500 text-[10px] leading-tight">
+              <span className="text-gray-500 text-[8px] md:text-[10px] leading-tight">
                 Technology
               </span>
             </div>
