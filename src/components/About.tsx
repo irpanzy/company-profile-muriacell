@@ -34,7 +34,10 @@ const features = [
 
 export default function About() {
   return (
-    <section id="about" className="max-w-6xl mx-auto px-4 md:px-6 py-8 md:py-16">
+    <section
+      id="about"
+      className="max-w-6xl mx-auto px-4 md:px-6 py-8 md:py-16"
+    >
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -42,7 +45,9 @@ export default function About() {
         transition={{ duration: 0.5 }}
         className="text-center mb-8"
       >
-        <h3 className="text-2xl md:text-3xl font-bold text-[#355872]">Tentang Kami</h3>
+        <h3 className="text-2xl md:text-3xl font-bold text-[#355872]">
+          Tentang Kami
+        </h3>
         <p className="mt-3 md:mt-4 text-sm md:text-base text-gray-700 max-w-3xl mx-auto">
           Muria Cellular Technology adalah toko yang melayani penjualan HP,
           aksesoris, voucher pulsa, MMC & flashdisk, powerbank, serta layanan
@@ -63,8 +68,12 @@ export default function About() {
               <Card className="transition-all duration-300 hover:shadow-lg hover:border-[#355872]/50 h-full">
                 <CardContent className="p-4 md:p-6">
                   <Icon className="text-[#355872] mb-3 w-6 h-6" />
-                  <h4 className="font-semibold text-sm md:text-base">{feature.title}</h4>
-                  <p className="text-xs md:text-sm text-gray-600 mt-2">{feature.desc}</p>
+                  <h4 className="font-semibold text-sm md:text-base">
+                    {feature.title}
+                  </h4>
+                  <p className="text-xs md:text-sm text-gray-600 mt-2">
+                    {feature.desc}
+                  </p>
                 </CardContent>
               </Card>
             </motion.div>
