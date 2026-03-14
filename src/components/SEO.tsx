@@ -11,18 +11,19 @@ interface SEOProps {
 }
 
 export default function SEO({
-  title = "Muria Cellular Technology - Service HP & Laptop Profesional di Cilacap",
-  description = "Muria Cellular Technology melayani service HP, penjualan gadget, aksesoris, dan konsultasi teknis di Cilacap. Tersedia juga fitur Muria Assistant untuk bantu tanya lokasi, jam operasional, produk, dan layanan.",
-  keywords = "service hp cilacap, service laptop cilacap, reparasi hp, reparasi laptop, toko hp cilacap, aksesoris hp, muria cellular, teknologi cilacap, service smartphone, perbaikan hp profesional, chatbot muria assistant, lokasi muria cellular",
+  title = "Konter HP Cilacap Terdekat | Muria Cellular Technology",
+  description = "Mencari konter terdekat di Cilacap? Muria Cellular Technology melayani service HP & laptop, penjualan gadget, aksesoris, serta konsultasi teknis di Cilacap dengan layanan cepat dan profesional.",
+  keywords = "konter terdekat, konter cilacap, konter hp terdekat cilacap, toko hp cilacap, service hp cilacap, service laptop cilacap, reparasi hp cilacap, aksesoris hp cilacap, muria cellular technology, lokasi konter cilacap",
   image = "/muria-cell-logo.png",
   url = "https://www.muriacellular.my.id",
   type = "website",
 }: SEOProps) {
   const absoluteImage = image.startsWith("http") ? image : `${url}${image}`;
+  const instagramHandle = business.instagram.split("/").filter(Boolean).pop();
 
   const localBusinessSchema = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "MobilePhoneStore",
     "@id": `${url}#localbusiness`,
     name: business.name,
     image: absoluteImage,
@@ -44,7 +45,13 @@ export default function SEO({
       longitude: "109.006523",
     },
     hasMap: business.maps,
+    areaServed: {
+      "@type": "City",
+      name: "Cilacap",
+    },
     sameAs: [business.instagram, `https://wa.me/${business.whatsappNumber}`],
+    keywords:
+      "konter terdekat, konter cilacap, service hp cilacap, service laptop cilacap",
     contactPoint: {
       "@type": "ContactPoint",
       telephone: `+${business.whatsappNumber}`,
@@ -68,6 +75,25 @@ export default function SEO({
       },
     ],
     priceRange: "$$",
+    paymentAccepted: ["Cash", "Bank Transfer", "QRIS"],
+    currenciesAccepted: "IDR",
+  };
+
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": `${url}#organization`,
+    name: business.name,
+    url,
+    logo: absoluteImage,
+    sameAs: [business.instagram, business.maps],
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: `+${business.whatsappNumber}`,
+      contactType: "customer support",
+      areaServed: "ID",
+      availableLanguage: ["id", "en"],
+    },
   };
 
   const websiteSchema = {
@@ -102,6 +128,14 @@ export default function SEO({
       },
       {
         "@type": "Question",
+        name: "Apakah Muria Cellular termasuk konter terdekat di Cilacap?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Muria Cellular berada di Cilacap Utara dan melayani pelanggan dari seluruh wilayah Cilacap untuk service HP, laptop, serta pembelian aksesoris.",
+        },
+      },
+      {
+        "@type": "Question",
         name: "Apa fungsi Muria Assistant di website?",
         acceptedAnswer: {
           "@type": "Answer",
@@ -119,6 +153,7 @@ export default function SEO({
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
       <meta name="theme-color" content="#355872" />
+      <meta name="application-name" content="Muria Cellular Technology" />
 
       {/* Robots */}
       <meta name="robots" content="index, follow" />
@@ -140,6 +175,7 @@ export default function SEO({
       <meta property="og:image:alt" content="Muria Cellular Technology" />
       <meta property="og:site_name" content="Muria Cellular Technology" />
       <meta property="og:locale" content="id_ID" />
+      <meta property="og:see_also" content={business.instagram} />
 
       {/* Twitter */}
       <meta property="twitter:card" content="summary_large_image" />
@@ -147,6 +183,9 @@ export default function SEO({
       <meta property="twitter:title" content={title} />
       <meta property="twitter:description" content={description} />
       <meta property="twitter:image" content={absoluteImage} />
+      {instagramHandle && (
+        <meta name="twitter:creator" content={`@${instagramHandle}`} />
+      )}
 
       {/* Business Information */}
       <meta name="author" content="Muria Cellular Technology" />
@@ -158,10 +197,14 @@ export default function SEO({
       {/* Canonical URL */}
       <link rel="canonical" href={url} />
       <link rel="alternate" hrefLang="id-ID" href={url} />
+      <link rel="me" href={business.instagram} />
 
       {/* JSON-LD Structured Data */}
       <script type="application/ld+json">
         {JSON.stringify(localBusinessSchema)}
+      </script>
+      <script type="application/ld+json">
+        {JSON.stringify(organizationSchema)}
       </script>
       <script type="application/ld+json">
         {JSON.stringify(websiteSchema)}
