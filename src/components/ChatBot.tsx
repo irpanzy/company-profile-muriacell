@@ -1,15 +1,29 @@
 import { useState, useRef, useEffect, type KeyboardEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Send, X, MessageCircle } from "lucide-react";
+import {
+  Send,
+  X,
+  MessageCircle,
+  Smartphone,
+  Clock3,
+  MapPin,
+  Wrench,
+  type LucideIcon,
+} from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { chatWithMuriaAssistant, type ChatMessage } from "@/lib/gemini";
 
+type TemplateQuestion = {
+  icon: LucideIcon;
+  text: string;
+};
+
 const TEMPLATE_QUESTIONS = [
-  { icon: "📱", text: "Apa saja produk?" },
-  { icon: "🕐", text: "Jam operasional?" },
-  { icon: "📍", text: "Lokasi toko?" },
-  { icon: "🔧", text: "Layanan service?" },
-];
+  { icon: Smartphone, text: "Apa saja produk?" },
+  { icon: Clock3, text: "Jam operasional?" },
+  { icon: MapPin, text: "Lokasi toko?" },
+  { icon: Wrench, text: "Layanan service?" },
+] satisfies TemplateQuestion[];
 
 export default function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
@@ -193,7 +207,7 @@ export default function ChatBot() {
                         disabled={isLoading}
                         className="w-full text-left px-4 py-2.5 bg-white hover:bg-gray-50 border border-gray-200 rounded-lg text-sm text-gray-700 transition-all flex items-center gap-3 disabled:opacity-50"
                       >
-                        <span className="text-lg">{template.icon}</span>
+                        <template.icon className="w-4 h-4 text-[#355872]" />
                         <span className="font-medium">{template.text}</span>
                       </motion.button>
                     ))}
