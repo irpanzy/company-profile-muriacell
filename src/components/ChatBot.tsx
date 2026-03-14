@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   Send,
   X,
-  MessageCircle,
+  Bot,
   Smartphone,
   Clock3,
   MapPin,
@@ -31,7 +31,7 @@ export default function ChatBot() {
     {
       role: "model",
       content:
-        "Halo, selamat datang di Muria Cellular 👋\nSaya Muria Assistant. Silakan tanyakan produk, service, atau lokasi kami.",
+        "Halo, selamat datang di Muria Cellular.\nSaya Muria Assistant. Silakan tanyakan produk, service, atau lokasi kami.",
     },
   ]);
   const [input, setInput] = useState("");
@@ -117,7 +117,7 @@ export default function ChatBot() {
             <X className="w-6 h-6" />
           ) : (
             <>
-              <MessageCircle className="w-6 h-6" />
+              <Bot className="w-6 h-6" />
               <span className="absolute top-1 right-1 w-3 h-3 bg-green-400 rounded-full animate-pulse"></span>
             </>
           )}
