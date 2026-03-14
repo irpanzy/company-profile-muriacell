@@ -132,7 +132,7 @@ export default function ChatBot() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-x-4 bottom-24 z-[1000] w-auto sm:w-[420px] max-w-[calc(100vw-2rem)] sm:right-4 sm:inset-x-auto max-h-[68vh] sm:max-h-[72vh] flex flex-col"
+            className="fixed inset-x-4 bottom-24 z-[1000] w-auto sm:w-[420px] max-w-[calc(100vw-2rem)] sm:right-4 sm:inset-x-auto max-h-[72vh] sm:max-h-[76vh] flex flex-col"
             style={{ pointerEvents: "auto" }}
           >
             <Card className="shadow-2xl border-0 overflow-hidden h-full flex flex-col bg-white">
@@ -163,7 +163,7 @@ export default function ChatBot() {
               </CardHeader>
 
               {/* Messages Area */}
-              <CardContent className="flex-1 p-4 overflow-y-auto bg-[#f7f9fb] space-y-3 flex flex-col">
+              <CardContent className="flex-1 p-3 sm:p-4 overflow-y-auto bg-[#f7f9fb] space-y-3 flex flex-col">
                 {messages.map((msg, idx) => (
                   <motion.div
                     key={idx}
@@ -240,7 +240,7 @@ export default function ChatBot() {
               </CardContent>
 
               {/* Input Area */}
-              <div className="border-t border-gray-200 bg-white p-3">
+              <div className="border-t border-gray-200 bg-white p-2">
                 <div className="flex gap-2">
                   <input
                     type="text"
@@ -249,14 +249,14 @@ export default function ChatBot() {
                     onKeyDown={handleKeyDown}
                     placeholder="Tulis pesan ke assistant..."
                     disabled={isLoading}
-                    className="flex-1 px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:border-[#355872] focus:ring-2 focus:ring-[#355872]/20 disabled:bg-gray-100 transition-all"
+                    className="flex-1 h-10 px-4 py-0 border border-gray-300 rounded-lg text-sm leading-[2.5rem] focus:outline-none focus:border-[#355872] focus:ring-2 focus:ring-[#355872]/20 disabled:bg-gray-100 transition-all"
                   />
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => handleSendMessage()}
                     disabled={!input.trim() || isLoading}
-                    className="bg-[#355872] hover:bg-[#2A4659] disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-lg p-2.5 transition-all"
+                    className="bg-[#355872] hover:bg-[#2A4659] disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-lg p-2 transition-all"
                   >
                     <Send className="w-4 h-4" />
                   </motion.button>
@@ -264,8 +264,8 @@ export default function ChatBot() {
               </div>
 
               {/* Footer */}
-              <div className="px-4 py-2 bg-white border-t border-gray-200 text-center">
-                <p className="text-xs text-gray-600">
+              <div className="px-4 py-1 bg-white border-t border-gray-200 text-center">
+                <p className="text-[10px] text-gray-600 leading-tight">
                   Muria Assistant • Layanan pelanggan
                 </p>
               </div>
