@@ -11,9 +11,9 @@ interface SEOProps {
 }
 
 export default function SEO({
-  title = "Konter HP Cilacap Terdekat | Muria Cellular Technology",
-  description = "Mencari konter terdekat di Cilacap? Muria Cellular Technology melayani service HP & laptop, penjualan gadget, aksesoris, serta konsultasi teknis di Cilacap dengan layanan cepat dan profesional.",
-  keywords = "konter terdekat, konter cilacap, konter hp terdekat cilacap, toko hp cilacap, service hp cilacap, service laptop cilacap, reparasi hp cilacap, aksesoris hp cilacap, muria cellular technology, lokasi konter cilacap",
+  title = "Muria Cellular Technology - Service HP & Laptop Profesional di Cilacap",
+  description = "Muria Cellular Technology adalah konter terdekat di Cilacap yang melayani service HP & laptop, penjualan gadget, aksesoris, serta konsultasi teknis dengan layanan cepat dan profesional.",
+  keywords = "muria cellular technology, service hp cilacap, service laptop cilacap, konter hp cilacap, toko hp cilacap, reparasi hp cilacap, konter terdekat cilacap, aksesoris hp cilacap",
   image = "/muria-cell-logo.png",
   url = "https://www.muriacellular.my.id",
   type = "website",
