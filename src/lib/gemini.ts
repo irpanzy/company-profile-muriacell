@@ -13,16 +13,16 @@ export interface ChatMessage {
 
 const fallbackResponses: { [key: string]: string } = {
   hello:
-    "Halo! 👋 Saya Muria Assistant dari Muria Cellular. Ada yang bisa saya bantu hari ini? Anda bisa bertanya tentang produk, layanan service, lokasi, atau jam operasional.",
+    "Halo! Saya Muria Assistant dari Muria Cellular. Ada yang bisa saya bantu hari ini? Anda bisa bertanya tentang produk, layanan service, lokasi, atau jam operasional.",
   produk:
-    "Kami menyediakan berbagai kebutuhan gadget, seperti:\n- 📱 HP baru (Samsung, Xiaomi, Vivo, Oppo, Realme)\n- 🎧 Aksesoris (charger, headset, casing, tempered glass)\n- 🔋 Powerbank & MMC\n- 🛠️ Layanan service HP\n\nSemua produk bergaransi, harga kompetitif, dan pelayanan kami ramah serta cepat. 😊",
+    "Kami menyediakan berbagai kebutuhan gadget, seperti:\n- HP baru (Samsung, Xiaomi, Vivo, Oppo, Realme)\n- Aksesoris (charger, headset, casing, tempered glass)\n- Powerbank & MMC\n- Layanan service HP\n\nSemua produk bergaransi, harga kompetitif, dan pelayanan kami ramah serta cepat.",
   lokasi:
-    "Lokasi toko kami:\n📍 Perumahan Cemara Regency\nJl. Urip Sumoharjo No.1A\nGumilir, Kec. Cilacap Utara\nKabupaten Cilacap, Jawa Tengah 53231\n\nSilakan datang langsung, kami siap melayani Anda.",
-  jam: "Jam operasional Muria Cellular:\n⏰ Senin - Minggu: 09:00 - 21:00\n\nJika ingin konfirmasi sebelum datang, silakan hubungi kami via WhatsApp.",
+    "Lokasi toko kami:\nPerumahan Cemara Regency\nJl. Urip Sumoharjo No.1A\nGumilir, Kec. Cilacap Utara\nKabupaten Cilacap, Jawa Tengah 53231\n\nSilakan datang langsung, kami siap melayani Anda.",
+  jam: "Jam operasional Muria Cellular:\nSenin - Minggu: 09:00 - 21:00\n\nJika ingin konfirmasi sebelum datang, silakan hubungi kami via WhatsApp.",
   service:
-    "Layanan service kami meliputi:\n🔧 Perbaikan HP (LCD, baterai, software)\n💻 Konsultasi teknis gratis\n⚡ Service express (cepat dan terpercaya)\n\nJika layar rusak, baterai bermasalah, atau butuh pemulihan data, tim kami siap membantu. Anda juga bisa booking lewat WhatsApp.",
+    "Layanan service kami meliputi:\n- Perbaikan HP (LCD, baterai, software)\n- Konsultasi teknis gratis\n- Service express (cepat dan terpercaya)\n\nJika layar rusak, baterai bermasalah, atau butuh pemulihan data, tim kami siap membantu. Anda juga bisa booking lewat WhatsApp.",
   default:
-    "Terima kasih atas pertanyaannya! 😊 Untuk informasi lebih lengkap, silakan hubungi kami melalui WhatsApp atau kunjungi toko kami langsung di Perumahan Cemara Regency.",
+    "Terima kasih atas pertanyaannya. Untuk informasi lebih lengkap, silakan hubungi kami melalui WhatsApp atau kunjungi toko kami langsung di Perumahan Cemara Regency.",
 };
 
 function getRelevantFallbackResponse(userMessage: string): string {
